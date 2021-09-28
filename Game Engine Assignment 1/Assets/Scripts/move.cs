@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class move : MonoBehaviour
 {
 
@@ -24,7 +26,14 @@ public class move : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(collision.collider.gameObject);
+            //Destroy(collision.collider.gameObject);
+            Destroy(gameObject);
+            SceneManager.LoadScene("Menu");
+        }
+
+        if(collision.gameObject.tag == "End")
+        {
+            SceneManager.LoadScene("Menu");
         }
 
     }
