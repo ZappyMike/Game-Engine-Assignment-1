@@ -28,12 +28,12 @@ public class move : MonoBehaviour
         {
             //Destroy(collision.collider.gameObject);
             Destroy(gameObject);
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("GameOver");
         }
 
         if(collision.gameObject.tag == "End")
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Win");
         }
 
     }
@@ -47,6 +47,16 @@ public class move : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(jump, ForceMode.Impulse);
+        }
+
+        if (gameObject.transform.position.x >= 0.113f)
+        {
+            transform.position = new Vector3(0.113f, gameObject.transform.position.y, gameObject.transform.position.z);
+        }
+
+        if (gameObject.transform.position.x <= -21.46f)
+        {
+            transform.position = new Vector3(-21.46f, gameObject.transform.position.y, gameObject.transform.position.z);
         }
     }
 
