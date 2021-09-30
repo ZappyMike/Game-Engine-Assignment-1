@@ -9,11 +9,10 @@ public class move : MonoBehaviour
 
     private Rigidbody rb;
     public float speed;
-    private float dirX, dirZ, dirY;
+    private float dirX;
     private bool grounded;
     public Vector3 jump;
 
-    // Start is called before the first frame update
     void Start()
     {
         speed = 3f;
@@ -26,7 +25,6 @@ public class move : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            //Destroy(collision.collider.gameObject);
             Destroy(gameObject);
             SceneManager.LoadScene("GameOver");
         }
@@ -38,11 +36,9 @@ public class move : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         dirX = Input.GetAxis("Horizontal") * speed;
-        //dirZ = Input.GetAxis("Vertical") * speed;
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
